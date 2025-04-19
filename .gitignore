@@ -1,0 +1,36 @@
+# uv 虛擬環境
+.venv/
+
+# uv 產生的 lock 檔（視情況決定是否忽略）
+# uv.lock  # 若希望其他人根據 pyproject.toml 自行安裝，可忽略
+
+# Python 通用暫存與編譯檔案
+__pycache__/
+*.py[cod]
+*.pyo
+
+# 測試報告與 coverage
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+
+# VS Code、PyCharm 等 IDE 設定
+.vscode/
+.idea/
+
+# 日誌與輸出檔
+*.log
+
+# 本地測試資料或環境變數
+.env
+*.sqlite3
+
+# pytest 快取
+.pytest_cache/
+
+# jupyter notebook checkpoint
+.ipynb_checkpoints/
+
+# macOS 系統檔案
+.DS_Store
