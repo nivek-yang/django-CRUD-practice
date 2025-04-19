@@ -8,3 +8,8 @@
 <a href="{% url 'Interview:index' %}">回面試列表</a>
 
 <a href="{% url 'Interview:update' id %}">更新資料</a>
+
+<form action="{% url 'Interview:delete' id %}" method="post">
+    {% csrf_token %}
+    <button>刪除資料</button>
+</form>

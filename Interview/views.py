@@ -40,3 +40,9 @@ def update(req, id):
     else:
         form = InterviewForm(instance=interview)
         return render(req, "Interview/update.html", {"form": form, "id": id})
+    
+def delete(req, id):
+    interview = get_object_or_404(Interview, pk=id)
+    interview.delete()
+
+    return redirect("Interview:index")
