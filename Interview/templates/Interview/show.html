@@ -9,7 +9,7 @@
 
 <a href="{% url 'Interview:update' id %}">更新資料</a>
 
-<form action="{% url 'Interview:delete' id %}" method="post">
+<form action="{% url 'Interview:delete' id %}" method="post" onsubmit="return confirm('確定要刪除？')">
     {% csrf_token %}
     <button>刪除資料</button>
 </form>

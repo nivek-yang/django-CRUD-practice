@@ -1,6 +1,6 @@
 <h1>新增面試心得</h1>
 
-<form action="{% url 'Interview:add' %}" method="post">
+<form action="{% url 'Interview:add' %}" method="post" onsubmit="return confirm('確定要新增？')">
     {% csrf_token %}
     {{ form }}
     <button>新增</button>
