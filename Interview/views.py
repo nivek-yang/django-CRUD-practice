@@ -28,4 +28,15 @@ def add(req):
 def show(req, id):
     interview = get_object_or_404(Interview, pk=id)
     form = InterviewForm(instance=interview)
-    return render(req, "Interview/show.html", {"form": form})
+    return render(req, "Interview/show.html", {"form": form, "id": id})
+
+def update(req, id):
+    interview = get_object_or_404(Interview, pk=id)
+    
+    if req.method == "POST":
+        form = InterviewForm(req.POST, instance=interview)
+        form.save()
+        return redirect("Interview:show", id)
+    else:
+        form = InterviewForm(instance=interview)
+        return render(req, "Interview/update.html", {"form": form, "id": id})

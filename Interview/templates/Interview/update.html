@@ -1,0 +1,7 @@
+<h1>更新資料</h1>
+
+<form action="{% url 'Interview:update' id %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button>更新</button>
+</form>
