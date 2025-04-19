@@ -1,1 +1,19 @@
 <h1>面試列表</h1>
+
+<a href="{% url 'Interview:add' %}">新增</a>
+
+<ul>
+    {% for interview_data in interview_forms %}
+        <li>
+            <a href="{% url 'Interview:show' interview_data.id %}">
+                <section>
+                        {% for field in interview_data.form %}
+                            {% if field.name in interview_data.fields_to_display %}
+                                <p>{{ field.label_tag }} {{ field.value }}</p>
+                            {% endif %}
+                        {% endfor %}
+                </section>
+            </a>
+        </li> 
+    {% endfor %}  
+</ul>

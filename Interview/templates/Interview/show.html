@@ -1,0 +1,8 @@
+
+<ul>
+    {% for field in form  %}
+    <p> {{ field.label_tag }} {{ field.value }}</p>   
+    {% endfor %}
+</ul>
+
+<a href="{% url 'Interview:index' %}">回面試列表</a>

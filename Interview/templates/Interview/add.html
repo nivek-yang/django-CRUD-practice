@@ -1,0 +1,7 @@
+<h1>新增面試心得</h1>
+
+<form action="{% url 'Interview:add' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button>新增</button>
+</form>
