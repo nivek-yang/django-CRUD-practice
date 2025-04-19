@@ -13,3 +13,17 @@
     {% csrf_token %}
     <button>刪除資料</button>
 </form>
+
+<ul>
+    {% for comment in comments %}
+    <li>{{ comment.content }}</li>
+    {% endfor %}
+</ul>
+
+
+
+<form action="{% url 'Interview:comment' id %}" method="post">
+    {% csrf_token %}
+    <textarea name="content" id=""></textarea>
+    <button>留言</button>
+</form>

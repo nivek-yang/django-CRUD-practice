@@ -8,4 +8,10 @@ class Interview(models.Model):
     rating = models.PositiveSmallIntegerField()
     review = models.TextField()
     result = models.CharField(max_length=100)
+
+class Comment(models.Model):
+    interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
     

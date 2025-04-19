@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import InterviewForm
-from .models import Interview
+from .models import Interview, Comment
 
 # Create your views here.
 def index(req):
@@ -28,7 +28,9 @@ def add(req):
 def show(req, id):
     interview = get_object_or_404(Interview, pk=id)
     form = InterviewForm(instance=interview)
-    return render(req, "Interview/show.html", {"form": form, "id": id})
+
+    comments = interview.comment_set.all().order_by("-id")
+    return render(req, "Interview/show.html", {"form": form, "id": id, "comments": comments})
 
 def update(req, id):
     interview = get_object_or_404(Interview, pk=id)
@@ -46,3 +48,9 @@ def delete(req, id):
     interview.delete()
 
     return redirect("Interview:index")
+
+def comment(req, id):
+    interview = get_object_or_404(Interview, pk=id)
+    interview.comment_set.create(content = req.POST["content"])
+
+    return redirect("Interview:show", id)
